@@ -1,9 +1,15 @@
-<!DOCTYPE html>     <!-- déclaration du doctype HTML5 -->
-<html lang="en">    <!-- il faut préciser la langue du document html -->
-  <head>            <!-- entête: titre, feuilles de style, scripts, etc. -->
-    <meta charset="utf-8" lang="en">  <!-- encodage des caractères : obligatoire ! -->
-    <title>PolyMusic</title>    <!-- titre de la page: obligatoire -->
-    <link rel="stylesheet" href="style.css"> <!-- feuille de style: optionnel -->
+<!doctype html>
+<!-- déclaration du doctype HTML5 -->
+<html lang="en">
+  <!-- il faut préciser la langue du document html -->
+  <head>
+    <!-- entête: titre, feuilles de style, scripts, etc. -->
+    <meta charset="utf-8" lang="en" />
+    <!-- encodage des caractères : obligatoire ! -->
+    <title>PolyMusic</title>
+    <!-- titre de la page: obligatoire -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- feuille de style: optionnel -->
   </head>
   <body>
     <!-- contenu de la page -->
@@ -16,7 +22,7 @@
           <li><a href="#3">Articles</a></li>
           <li><a href="#4">Recommendations</a></li>
           <li><a href="#5">My Profile</a></li>
-          <li><a href="#6">Advances Search</li>
+          <li><a href="#6">Advances Search</a></li>
         </ul>
 
         <ul>
@@ -32,74 +38,144 @@
           <li><a href="justalternate.fr">RSS Feed</a></li>
         </ul>
 
-        <span>Search:</span>
-        <input type="search" placeholder="Search">
-        <button>submit</button>
+        <form>
+          <label for="searchbar">Search</label>
+          <input type="search" id="searchbar" placeholder="Search" />
+          <button>submit</button>
+        </form>
       </nav>
     </header>
 
-    <h2>Pop/Rock</h2>
+    <section>
+      <h2>Pop/Rock</h2>
 
-    <p>Rock &amp; Roll is often used as a generic term, but its sound is rarely predictable. From the outset, when the early rockers merged country and blues, rock has been defined by its energy, rebellion and catchy hooks, but as the genre aged, it began to shed those very characteristics, placing equal emphasis on craftmanship and pushing the boundaries of the music. As a result, everything from Chuck Berry's pounding, three-chord rockers and the sweet harmonies of the Beatles to the jarring, atonal white noise of Sonic Youth has been categorized as "rock." That's accurate -- rock &amp; roll had a specific sound and image for only a handful of years. For most of its life, rock has been fragmented, spinning off new styles and variations every few years, from Brill Building Pop and heavy metal to dance-pop and grunge. And that's only natural for a genre that began its life as a fusion of styles.</p>
+      <p>
+        Rock &amp; Roll is often used as a generic term, but its sound is rarely
+        predictable. From the outset, when the early rockers merged country and
+        blues, rock has been defined by its energy, rebellion and catchy hooks,
+        but as the genre aged, it began to shed those very characteristics,
+        placing equal emphasis on craftmanship and pushing the boundaries of the
+        music. As a result, everything from Chuck Berry's pounding, three-chord
+        rockers and the sweet harmonies of the Beatles to the jarring, atonal
+        white noise of Sonic Youth has been categorized as "rock." That's
+        accurate -- rock &amp; roll had a specific sound and image for only a
+        handful of years. For most of its life, rock has been fragmented,
+        spinning off new styles and variations every few years, from Brill
+        Building Pop and heavy metal to dance-pop and grunge. And that's only
+        natural for a genre that began its life as a fusion of styles.
+      </p>
+    </section>
 
-    <h2>Pop/Rock Artists Highlights</h2>
+    <section>
+      <h2>Pop/Rock Artists Highlights</h2>
 
-    <h3><a>The Rolling Stones</a></h3>
-    <img src="images/rolling-stones.jpg">
-    <p>1960s-2010s</p>
-    <p>The premier British rock band for over half a century, creators of the sound and style imitated by countless groups.</p>
+      <article>
+        <h3><a href="#">The Rolling Stones</a></h3>
+        <img src="images/rolling-stones.jpg" alt="Rolling Stones" />
+        <p>1960s-2010s</p>
+        <p>
+          The premier British rock band for over half a century, creators of the
+          sound and style imitated by countless groups.
+        </p>
+      </article>
 
-    <h3><a>The Beach Boys</a></h3>
-    <img src="images/beach-boys.jpg">
-    <p>1960s-2010s</p>
-    <p>One of the most influential acts of the rock era, purveyors of both infectious surf music and sophisticated baroque/psychedelic pop.</p>
+      <article>
+        <h3><a href="#">The Beach Boys</a></h3>
+        <img src="images/beach-boys.jpg" alt="Beach Boys" />
+        <p>1960s-2010s</p>
+        <p>
+          One of the most influential acts of the rock era, purveyors of both
+          infectious surf music and sophisticated baroque/psychedelic pop.
+        </p>
+      </article>
 
-    <h3><a>The Clash</a></h3>
-    <img src="images/clash.jpg">
-    <p>1970s-1980s</p>
-    <p>The most accomplished punk band, critically important provocateurs influenced by reggae, rockabilly, soul, and blues.</p>
+      <article>
+        <h3><a href="#">The Clash</a></h3>
+        <img src="images/clash.jpg" alt="Clash" />
+        <p>1970s-1980s</p>
+        <p>
+          The most accomplished punk band, critically important provocateurs
+          influenced by reggae, rockabilly, soul, and blues.
+        </p>
+      </article>
 
-    <p><a href="#">More Pop/Rock Artists</a></p>
+      <p><a href="#">More Pop/Rock Artists</a></p>
+    </section>
 
-    <h2>Pop/Rock Song Highlights</h2>
-    <table>
-      <tr>
-        <th>Title</th>
-        <th>Performer</th>
-        <th>Stream</th>
-      </tr>
-      <tr>
-        <td><a href="#">Good Vibrations</a></td>
-        <td><a href="#">The Beach Boys</a></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a href="#">Johnny B. Goode</a></td>
-        <td><a href="#">Chuck Berry</a></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td><a href="#">Tutti Frutti</a></td>
-        <td><a href="#">Little Richard</a></td>
-        <td><a href="http://open.spotify.com/track/0Fau19QCs19VC7OWohMdzu">Stream from Spotify</a></td>
-      </tr>
-    </table>
-    <p><a href="#">More Pop/Rock Songs</a></p>
+    <section>
+      <h2>Pop/Rock Song Highlights</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Performer</th>
+            <th>Stream</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="#">Good Vibrations</a></td>
+            <td><a href="#">The Beach Boys</a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><a href="#">Johnny B. Goode</a></td>
+            <td><a href="#">Chuck Berry</a></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><a href="#">Tutti Frutti</a></td>
+            <td><a href="#">Little Richard</a></td>
+            <td>
+              <a href="http://open.spotify.com/track/0Fau19QCs19VC7OWohMdzu"
+                >Stream from Spotify</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p><a href="#">More Pop/Rock Songs</a></p>
+    </section>
+    <section>
+      <aside>
+        <h2>Recent Pop/Rock Releases</h2>
 
-    <h2>Recent Pop/Rock Releases</h2>
+        <article>
+          <h3><a href="#">David Bowie</a> - <a href="#">Legacy</a></h3>
+          <img src="images/bowie.jpg" alt="Bowie" />
+          <p>
+            <q
+              >One of the first posthumous Bowie hits collection serves up his
+              standards.</q
+            >
+            <cite>Stephen Thomas Erlewine</cite>
+          </p>
+        </article>
 
-    <h3><a href="#">David Bowie</a> - <a href="#">Legacy</a></h3>
-    <img src="images/bowie.jpg">
-    <p>One of the first posthumous Bowie hits collection serves up his standards. <i>Stephen Thomas Erlewine</i></p>
+        <article>
+          <h3><a href="#">Sting</a> - <a href="#">57th &amp; 9th</a></h3>
+          <img src="images/sting.jpg" alt="Sting" />
+          <p>
+            <q
+              >For the first time in 13 years, Sting returns to pop and rock.</q
+            >
+            <cite>Stephen Thomas Erlewine</cite>
+          </p>
+        </article>
 
-    <h3><a href="#">Sting</a> - <a href="#">57th &amp; 9th</a></h3>
-    <img src="images/sting.jpg">
-    <p>For the first time in 13 years, Sting returns to pop and rock. <i>Stephen Thomas Erlewine</i></p>
-
-    <h3><a href="#">Kate Bush</a> - <a href="#">Before the Dawn</a></h3>
-    <img src="images/kate-bush.jpg">
-    <p>The reclusive musician's return to the stage in 2014 is documented with this singular and spectacular live recording. <i>Mark Deming</i></p>
-  
+        <article>
+          <h3><a href="#">Kate Bush</a> - <a href="#">Before the Dawn</a></h3>
+          <img src="images/kate-bush.jpg" alt="Kate Bush" />
+          <p>
+            <q
+              >The reclusive musician's return to the stage in 2014 is
+              documented with this singular and spectacular live recording.</q
+            >
+            <cite>Mark Deming</cite>
+          </p>
+        </article>
+      </aside>
+    </section>
     <footer>
       <ul>
         <li><a href="#">About</a></li>
@@ -108,7 +184,9 @@
         <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms of Service</a></li>
       </ul>
-      <p>©2017 PolyMusic, member of the Polytech group  |  All Rights Reserved</p>
+      <p>
+        ©2017 PolyMusic, member of the Polytech group | All Rights Reserved
+      </p>
     </footer>
   </body>
 </html>
