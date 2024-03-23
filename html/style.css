@@ -1,22 +1,82 @@
 /* mise en page globale */
 
-/* 'normalisation' des marges et padding pour simplifier le positionnement */
-/* A DE-COMMENTER lorsque vous commencerez à modifier ce fichier CSS */
-/* *{
+header, body, footer{
+  widht:980px;
+  margin:0 auto;
+
+}
+
+body{
+  min-width:480px;
+  background-color: #f6f6f6;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+h2{
+  font-size:100%;
+  padding-left:1em;
+  padding-right:1em;
+  text-decoration-line:underline;
+  text-decoration-color:#DFDFDF;
+  text-decoration-thickness:1px;
+  margin-bottom:1em;
+}
+
+p{
+  font-size:80%;
+  text-align:justify;
+  hyphens:auto;
+  line-height:1.5em;
+}
+
+li {
+  display:inline-block;
+}
+
+a {
+  color: white;
+  text-decoration-line:none;
+}
+
+*{
   margin: 0;
   padding: 0;
-}*/
+}
 
 /* mise en page de l'entête */
 
+header {
+  background-color:black;
+  text-color:white;
+  position:relative:
+}
+
 /* mise en page de la section Pop/Rock */
+.pr{
+  width: 240px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid #DFDFDF;
+  padding: 10px;
+  margin-top: 10px;
+}
 
 /* mise en page de la section Pop/Rock Artists Highlights */
+.prah{
+}
 
 /* mise en page de la section Pop/Rock Song Highlights */
+.prsh{
+}
 
 /* mise en page de l'aside Recent Pop/Rock Releases */
+.rprr{
+}
 
 /* mise en page du footer */
+footer{
+}
 
 /* règles de mise en page pour rendre le site responsive */
