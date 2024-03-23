@@ -1,7 +1,7 @@
 /* mise en page globale */
 
 header, body, footer{
-  widht:980px;
+  width:980px;
   margin:0 auto;
 
 }
@@ -14,12 +14,13 @@ body{
 
 h2{
   font-size:100%;
-  padding-left:1em;
   padding-right:1em;
   text-decoration-line:underline;
   text-decoration-color:#DFDFDF;
   text-decoration-thickness:1px;
+  text-underline-offset:10px;
   margin-bottom:1em;
+  padding-left:1em;
 }
 
 p{
@@ -33,10 +34,8 @@ li {
   display:inline-block;
 }
 
-a {
-  color: white;
-  text-decoration-line:none;
-}
+
+
 
 *{
   margin: 0;
@@ -47,36 +46,101 @@ a {
 
 header {
   background-color:black;
-  text-color:white;
-  position:relative:
+  color:white;
+  position:relative;
+}
+
+header a {
+  color: white;
+  text-decoration-line:none;
+}
+
+section {
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #DFDFDF;
+  margin-bottom: 20px;
+}
+
+section > article{
+  display: inline-block;
+  width: 30%;
+}
+
+section > article p{
+  display: none;
+}
+
+.prah img{
+  width: 170px;
+  height: 170px;
 }
 
 /* mise en page de la section Pop/Rock */
-.pr{
+.rprr{
   width: 240px;
-  position: absolute;
-  top: 0;
-  right: 0;
   background-color: white;
   border: 1px solid #DFDFDF;
-  padding: 10px;
+  float:right;
   margin-top: 10px;
 }
 
+.rprr h2 {
+  padding: 10px;
+}
+
+.rprr img {
+  width: 90px;
+  height: 90px;
+}
 /* mise en page de la section Pop/Rock Artists Highlights */
 .prah{
+  margin-right:300px;
+  padding: 10px;
+}
+
+.prah p {
+  display: none;
 }
 
 /* mise en page de la section Pop/Rock Song Highlights */
 .prsh{
+  margin-right:300px;
+}
+
+.prsh a {
+  color: black;
+  text-decoration-line:none;
 }
 
 /* mise en page de l'aside Recent Pop/Rock Releases */
-.rprr{
+.pr{
+  margin-right:300px;
+  background-color: #f6f6f6;
+  border: none;
+}
+
+.pr h2 {
+  
+  padding-left:0;
 }
 
 /* mise en page du footer */
 footer{
+  padding-top:20px;
+  padding-bottom:20px;
+  color:white;
+  background-color: black;
+}
+
+footer a::after {
+  content: '|';
+  padding: 20px;
+  margin: 5px;
+}
+footer a {
+  color: white;
+  text-decoration-line:none;
 }
 
 /* règles de mise en page pour rendre le site responsive */
