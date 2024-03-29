@@ -1,0 +1,14 @@
+1 - Prise en main des outils
+1.1 -  Analyse de code source JavaScript – exemple 1/2
+1) Anticipation : 
+NaN & NaN car en dehors de la fonction
+Exécution :
+undefined & number car fonction appelée ? 
+
+
+2) Pas du tout lisible, on ne sait pas si l'affection est sur a ou b.
+
+2 - Analyse de code source JavaScript – exemple 2/2
+1) On a pas le bon minimum pour les 3 dernières valeurs du tableau. 
+On se retrouve avec 1 valeur en plus par rapport au tableau initial pour le sort. 
+
