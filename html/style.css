@@ -48,11 +48,75 @@ header {
   background-color:black;
   color:white;
   position:relative;
+  height: 70px;
+  padding: 5px;
 }
 
 header a {
   color: white;
   text-decoration-line:none;
+}
+
+header h1{
+  text-indent:100%;
+  white-space: nowrap;
+  overflow:hidden;
+  background-image:url('images/poly-music.png');
+  background-repeat: no-repeat;
+  width:220px;
+  height: 35px;
+}
+
+.hub{
+  position: absolute;
+  top:50px;
+  font-weight:bold;
+}
+
+.hub li{
+  padding-right: 10px;
+}
+
+.rs{
+  display: none;
+}
+
+.register{
+  position:absolute;
+  right :10px;
+  top: 60px;
+  font-size:12px;
+}
+
+.searchbar{
+  position:absolute;
+  top: 10px;
+  right: 5px;
+}
+
+.searchbar label{
+  display:none;
+}
+
+.searchbar input[type=text] {
+  padding: 2px;
+  font-size: 12px;
+  border: none;
+  box-sizing: border-box;
+  background-color: #1d1e20 !important;
+  color: #aaaaaf;
+}
+
+.searchbar button {
+  padding: 2px 4px;
+  background: #ddd;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
 }
 
 section {
@@ -74,6 +138,26 @@ section > article p{
 .prah img{
   width: 170px;
   height: 170px;
+}
+
+.prah{
+  position:relative;
+}
+
+.prah h3{
+  position: absolute;
+  width:170px;
+  bottom:10px;
+  font-size:14px;
+  text-align:center;
+  background-color:black;
+  height:20px;
+}
+
+.prah h3 a{
+  text-decoration-line:none;
+  color:#ffff;
+  vertical-align: middle;
 }
 
 /* mise en page de la section Pop/Rock */
