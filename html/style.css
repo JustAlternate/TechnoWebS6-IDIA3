@@ -1,43 +1,45 @@
 /* mise en page globale */
 
-header, body, footer{
-  width:980px;
-  margin:0 auto;
-
+header,
+body,
+footer {
+  width: 980px;
+  margin: 0 auto;
 }
 
-body{
-  min-width:480px;
+body {
+  min-width: 480px;
   background-color: #f6f6f6;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family:
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
 }
 
-h2{
-  font-size:100%;
-  padding-right:1em;
-  text-decoration-line:underline;
-  text-decoration-color:#DFDFDF;
-  text-decoration-thickness:1px;
-  text-underline-offset:10px;
-  margin-bottom:1em;
-  padding-left:1em;
+h2 {
+  font-size: 100%;
+  padding-right: 1em;
+  text-decoration-line: underline;
+  text-decoration-color: #dfdfdf;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 10px;
+  margin-bottom: 1em;
+  padding-left: 1em;
 }
 
-p{
-  font-size:80%;
-  text-align:justify;
-  hyphens:auto;
-  line-height:1.5em;
+p {
+  font-size: 80%;
+  text-align: justify;
+  hyphens: auto;
+  line-height: 1.5em;
 }
 
 li {
-  display:inline-block;
+  display: inline-block;
 }
 
-
-
-
-*{
+* {
   margin: 0;
   padding: 0;
 }
@@ -54,7 +56,7 @@ header {
 
 header a {
   color: white;
-  text-decoration-line:none;
+  text-decoration-line: none;
 }
 
 header h1{
@@ -122,20 +124,20 @@ header h1{
 section {
   padding: 10px;
   background-color: white;
-  border: 1px solid #DFDFDF;
+  border: 1px solid #dfdfdf;
   margin-bottom: 20px;
 }
 
-section > article{
+section > article {
   display: inline-block;
   width: 30%;
 }
 
-section > article p{
+section > article p {
   display: none;
 }
 
-.prah img{
+.prah img {
   width: 170px;
   height: 170px;
 }
@@ -161,11 +163,11 @@ section > article p{
 }
 
 /* mise en page de la section Pop/Rock */
-.rprr{
+.rprr {
   width: 240px;
   background-color: white;
-  border: 1px solid #DFDFDF;
-  float:right;
+  border: 1px solid #dfdfdf;
+  float: right;
   margin-top: 10px;
 }
 
@@ -178,8 +180,8 @@ section > article p{
   height: 90px;
 }
 /* mise en page de la section Pop/Rock Artists Highlights */
-.prah{
-  margin-right:300px;
+.prah {
+  margin-right: 300px;
   padding: 10px;
 }
 
@@ -188,43 +190,42 @@ section > article p{
 }
 
 /* mise en page de la section Pop/Rock Song Highlights */
-.prsh{
-  margin-right:300px;
+.prsh {
+  margin-right: 300px;
 }
 
 .prsh a {
   color: black;
-  text-decoration-line:none;
+  text-decoration-line: none;
 }
 
 /* mise en page de l'aside Recent Pop/Rock Releases */
-.pr{
-  margin-right:300px;
+.pr {
+  margin-right: 300px;
   background-color: #f6f6f6;
   border: none;
 }
 
 .pr h2 {
-  
-  padding-left:0;
+  padding-left: 0;
 }
 
 /* mise en page du footer */
-footer{
-  padding-top:20px;
-  padding-bottom:20px;
-  color:white;
+footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: white;
   background-color: black;
 }
 
-footer a::after {
-  content: '|';
-  padding: 20px;
+footer ul :not(:last-child):after {
+  content: "|";
+  padding: 5px;
   margin: 5px;
 }
 footer a {
   color: white;
-  text-decoration-line:none;
+  text-decoration-line: none;
 }
 
 /* règles de mise en page pour rendre le site responsive */
