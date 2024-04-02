@@ -34,6 +34,7 @@ function loadGenres() {
     .then((data) => {
         updateSelector(data);
         document.getElementById("genreOption").addEventListener('change', (evt) => {loadArtists(data, evt.target.value)});
+        loadArtists(data, 0);
     })
     .catch(error => console.log('error:', error));
 }
@@ -67,15 +68,12 @@ async function updateArtists(genre) {
 
 function loadArtists(data, genre_id){
 
-    //const h2 = document.getElementById('main').getElementsByTagName("h2"); // A CHANGER POUR UN QUERY SELECTOR
     const h2 = document.querySelector("#main").querySelector("h2");
     h2.textContent = "Top " + data[genre_id].name + " artists";
 
     const p = document.querySelector("#main > p");
     p.textContent = data[genre_id].description;
 
-    
-    
     updateArtists(data[genre_id].id);
 
 
