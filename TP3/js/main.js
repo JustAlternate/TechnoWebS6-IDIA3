@@ -1,20 +1,16 @@
 'use strict';
 /* eslint-env browser, es6 */
 
-// Pas besoin d'évenement window.onload puisqu'on utilise l'attribut defer
-// lorsque l'on charge notre script
-// console.log("Page load après");
-
 function updateSelector(data){
-    const select = document.getElementById("genreOption");
+    const select = document.querySelector("#main select");
     for (let i=0; i<data.length;i++){
-        //console.log(data[i].id);
         const opt = document.createElement("option");
         opt.value = i;
         opt.text = data[i].name;
         select.add(opt);
     }
 }
+// Function using the fetch and .then .data syntax.
 function loadGenres() {
     fetch('http://localhost:3000/genres', { method: 'GET' })
     .then(response => {
@@ -29,7 +25,7 @@ function loadGenres() {
     })
     .then((data) => {
         updateSelector(data);
-        document.getElementById("genreOption").addEventListener('change', (evt) => {loadArtists(data, evt.target.value)});
+        document.querySelector("#main select").addEventListener('change', (evt) => {loadArtists(data, evt.target.value)});
         loadArtists(data, 0);
     })
     .catch(error => console.log('error:', error));
@@ -37,28 +33,26 @@ function loadGenres() {
 async function updateArtists(genre) {
     const response = await fetch('http://localhost:3000/genres/'+genre+'/artists', { method: 'GET' })
     const artists = await response.json();
-    console.log(artists);
-
     const ul = document.querySelector("#main ul");
-    const ul_li_childs = ul.querySelectorAll("li");
-    ul_li_childs.forEach(element => {
-        //TODO : try to find a more efficient and prettty looking way than using a forEach to wipe ul children.
-        element.remove(); // We remove any left li inside our ul.
-    })
-    artists.forEach(element => {
+
+    const new_children_to_add = artists.map((element) => {
         const li = document.createElement("li");
         const h3 = document.createElement("h3");
         const img = document.createElement("img");
+        // Create an onclick event listener to show the aside popup with the desired artist albums.
         h3.addEventListener('click', (evt) => {artistSelected(evt)});
-
         h3.textContent = element.name;
-        h3.id = element.id; // Put the id of the artist inside h3.id for the popup.
+        h3.id = element.id; // Put the id of the artist inside h3.id for the popup to find it.
         img.src = element.photo;
         li.appendChild(h3);
         li.appendChild(img);
-        ul.appendChild(li);
+
+        return li;
     });
-}
+    // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
+    // Stackoverflow nice way of wiping all children of an dom element and replacing them by new ones.
+    ul.replaceChildren(...new_children_to_add);
+};
 function loadArtists(data, genre_id){
 
     const h2 = document.querySelector("#main").querySelector("h2");
@@ -79,7 +73,6 @@ async function artistSelected(evt){
   popup.style.visibility = "visible";
   popup.style.opacity = 1;
   popup.style.transform = 'translateX(350px)';
-  
   const alb_atts = ["cover","title","year","label"];
 
   for (let num_alb = 0; num_alb<albums.length; num_alb++){
@@ -102,7 +95,10 @@ async function artistSelected(evt){
     table_v.appendChild(tr);
 
   }
-
 }
 
-loadGenres();
+// Using a main function to make things a bit more proper looking.
+function main(){
+  loadGenres();
+}
+main()
