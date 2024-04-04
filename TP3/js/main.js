@@ -1,6 +1,5 @@
 'use strict';
 /* eslint-env browser, es6 */
-
 function updateSelector(data){
     const select = document.querySelector('#main select');
     for (let i = 0; i < data.length; i += 1){
@@ -10,8 +9,6 @@ function updateSelector(data){
         select.add(opt);
     }
 }
-
-
 // Function using the fetch and .then .data syntax.
 function loadGenres() {
     fetch('http://localhost:3000/genres', {method: 'GET'})
@@ -30,6 +27,7 @@ function loadGenres() {
             document.querySelector('#main select').addEventListener('change', (evt) => {
                 loadArtists(data, evt.target.value);
             });
+            // By default we load the first option of the select element.
             loadArtists(data, 0);
         })
         .catch(error => console.log('error:', error));
@@ -57,19 +55,19 @@ async function updateArtists(genre) {
         return li;
     });
     // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
-    // Stackoverflow nice way of wiping all children of an dom element and replacing them by new ones.
+    // Stackoverflow nice way of wiping all children of a dom element and replacing them by new ones.
     ul.replaceChildren(...new_children_to_add);
 }
 
 function loadArtists(data, genre_id){
-
     const h2 = document.querySelector('#main').querySelector('h2');
-    h2.textContent = 'Top ' + data[genre_id].name + ' artists';
-
     const p = document.querySelector('#main > p');
+    let genre_name = data[genre_id].id;
+
+    h2.textContent = 'Top ' + data[genre_id].name + ' artists';
     p.textContent = data[genre_id].description;
 
-    updateArtists(data[genre_id].id);
+    updateArtists(genre_name);
 }
 async function artistSelected(evt){
     const artist_id = evt.target.id; // Use the id attribut inside h3 to find the artist id.
