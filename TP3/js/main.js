@@ -67,10 +67,34 @@ async function artistSelected(evt){
   let artist_id = evt.target.id; // Use the id attribut inside h3 to find the artist id.
   let response = await fetch('http://localhost:3000/artists/'+artist_id+'/albums', { method: 'GET' })
   let albums = await response.json();
-  let popup = document.querySelector('aside'); 
+  let popup = document.querySelector('aside');
+
+  let table_v = document.querySelector('aside table tbody');
   popup.style.visibility = "visible";
-  popup.style.opacity = 0.9;
-  popup.style.transform = 'translateX(400px)';
+  popup.style.opacity = 1;
+  popup.style.transform = 'translateX(350px)';
+  const alb_atts = ["cover","title","year","label"];
+
+  for (let num_alb = 0; num_alb<albums.length; num_alb++){
+
+    const tr = document.createElement("tr");
+
+    for (let att=0 ; att < alb_atts.length; att++){
+        const td = document.createElement("td");
+        if (alb_atts[att] === "cover"){
+            const img = document.createElement("img");
+            img.src = albums[num_alb][alb_atts[att]];
+            td.appendChild(img);
+        }
+        else {
+            td.textContent = albums[num_alb][alb_atts[att]];
+        }
+        tr.appendChild(td);
+    }
+
+    table_v.appendChild(tr);
+
+  }
 }
 
 // Using a main function to make things a bit more proper looking.
