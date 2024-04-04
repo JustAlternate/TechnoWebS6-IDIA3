@@ -69,10 +69,29 @@ header{
   padding-bottom: 0.5em;
   margin-left:auto;
   margin-right:auto;
+  
   left:0;
   right:700px;
   top:25%;
   transition:transform 1s;
+  
+}
+
+
+#albums img{
+  height: 50px;
+}
+
+#albums h2{
+  margin-top: 0;
+  width: 100%;
+  margin-bottom: 0;
+  background-color: #0980b3;
+  color: white;
+}
+
+#albums table{
+  width: 100%;
 }
 
 footer{
