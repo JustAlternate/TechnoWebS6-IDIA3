@@ -62,7 +62,7 @@ async function updateArtists(genre) {
 function loadArtists(data, genre_id){
     const h2 = document.querySelector('#main').querySelector('h2');
     const p = document.querySelector('#main > p');
-    let genre_name = data[genre_id].id;
+    const genre_name = data[genre_id].id;
 
     h2.textContent = 'Top ' + data[genre_id].name + ' artists';
     p.textContent = data[genre_id].description;
@@ -76,17 +76,16 @@ async function artistSelected(evt){
     });
     const albums = await response.json();
     const popup = document.querySelector('aside');
-
     const table_v = document.querySelector('aside table tbody');
-    popup.style.visibility = 'visible';
-    popup.style.opacity = 1;
-    popup.style.transform = 'translateX(350px)';
     const alb_atts = ['cover', 'title', 'year', 'label'];
 
+    // if tbody is empty
+   if (!!(table_v.children)){
+      table_v.replaceChildren();
+    }
+
     for (let num_alb = 0; num_alb < albums.length; num_alb += 1){
-
         const tr = document.createElement('tr');
-
         for (let att = 0; att < alb_atts.length; att += 1){
             const td = document.createElement('td');
             if (alb_atts[att] === 'cover'){
@@ -99,15 +98,24 @@ async function artistSelected(evt){
             }
             tr.appendChild(td);
         }
-
         table_v.appendChild(tr);
-
     }
+    popup.style.visibility = 'visible';
+    popup.style.opacity = 1;
+    popup.style.transform = 'translateX(350px)';
+    // EventListener to make the popup vanish
+    popup.querySelector("button").addEventListener('click', (evt) => {
+      // Ne marche pas :
+      popup.style.transform = 'translateX(-350px)';
+      popup.style.visibility = 'hidden';
+      popup.style.opacity = 0;
+      const tr = table_v.querySelector('tr');
+      tr.replaceChildren();
+    });
 }
 
 // Using a main function to make things a bit more proper looking.
 function main(){
     loadGenres();
 }
-
 main();

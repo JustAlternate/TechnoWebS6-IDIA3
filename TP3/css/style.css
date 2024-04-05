@@ -70,15 +70,12 @@ header{
   opacity: 0;
   padding-bottom: 0.5em;
   margin-left:auto;
-  margin-right:auto;
-  
+  margin-right:auto; 
   left:0;
   right:700px;
   top:25%;
   transition:transform 1s;
-  
 }
-
 
 #albums img{
   height: 50px;
