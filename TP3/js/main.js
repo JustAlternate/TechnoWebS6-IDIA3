@@ -100,17 +100,21 @@ async function artistSelected(evt){
         }
         table_v.appendChild(tr);
     }
-    popup.style.visibility = 'visible';
-    popup.style.opacity = 1;
+    // launch the animation of appearing
     popup.style.transform = 'translateX(350px)';
+    popup.style.opacity = '1';
+    popup.style.visibility = 'visible';
+
     // EventListener to make the popup vanish
     popup.querySelector("button").addEventListener('click', (evt) => {
-      // Ne marche pas :
-      popup.style.transform = 'translateX(-350px)';
+      popup.style.transform = 'translateX(750px)';
+      popup.style.opacity = '0';
       popup.style.visibility = 'hidden';
-      popup.style.opacity = 0;
-      const tr = table_v.querySelector('tr');
-      tr.replaceChildren();
+      setTimeout(() => {
+        const tr = table_v.querySelector('tr');
+        tr.replaceChildren();
+      }, "1000");
+      popup.style.transform = 'translateX(-750px)';
     });
 }
 
