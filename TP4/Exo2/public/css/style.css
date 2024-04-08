@@ -2,7 +2,7 @@
 
 #container
 {
-  width: 980px;
+  width: auto;
   margin: 0 auto;
 }
 
@@ -16,11 +16,16 @@ header{
 
 #main{
   position: relative;
+  flex-wrap:wrap;
+
 }
 
-#main h2
+#main li h3
 {
+  font-size: 20px;
   margin-bottom: 1em;
+  font-weight:bold;
+  color:#0980b3;
 }
 
 #main nav {
@@ -34,7 +39,21 @@ header{
 }
 
 #main ul{
-  padding : 0;
+  padding : 10px;
+}
+
+#main li {
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgba(0,0,0,0.5);
+  display: inline-block;
+  text-align:center;
+  padding:15px;
+  margin:10px;
+}
+
+#main li img {
+  height:200px;
 }
 
 #main form, #main nav > p{
@@ -49,7 +68,35 @@ header{
   text-align: center;
   border: solid 1px black;
   opacity: 0;
-  padding-bottom: 0.5em
+  padding-bottom: 0.5em;
+  margin-left:auto;
+  margin-right:auto;
+  left:0;
+  right:700px;
+  top:25%;
+  transition:transform 1s, opacity 1s, visibility 1s;
+}
+
+#albums img{
+  height: 50px;
+}
+
+#albums h2{
+  margin-top: 0;
+  width: 100%;
+  margin-bottom: 0;
+  background-color: #0980b3;
+  color: white;
+}
+
+#albums table{
+  width: 100%;
+}
+
+#albums.show {
+  transform: translateX(350px);
+  opacity: 1;
+  visibility: visible;
 }
 
 footer{
