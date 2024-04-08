@@ -93,6 +93,12 @@ header{
   width: 100%;
 }
 
+#albums.show {
+  transform: translateX(350px);
+  opacity: 1;
+  visibility: visible;
+}
+
 footer{
   text-align: center;
   padding: 0.5em 0;

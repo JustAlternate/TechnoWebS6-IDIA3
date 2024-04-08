@@ -1,7 +1,8 @@
 {
-  "name": "TP_Web_et_XML_1",
+  "name": "TP Tech Web 3",
+  "contributors": ["Théo MASSLEOT","Loïc WEBER"],
   "version": "1.0.0",
-  "description": "Premier TP de Technologies Web et XML",
+  "description": "3eme TP de Technologies Web et XML",
   "scripts": {
     "start": "gulp",
     "eval": "node autoeval-tp1.js"
