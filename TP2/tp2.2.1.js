@@ -43,7 +43,7 @@ class Album {
   getTitle(){
     return this.title;
   }
-  
+
   getArtist(){
     return this.artist;
   }
@@ -59,4 +59,19 @@ let json_objects = Object.entries(album_json);
 
 const albums_json = json_objects.map((k) => k[1] = new Album(k[1].title, k[1].year, k[1].artist));
 
-console.log(albums_json);
+// 2.2.6
+// J'ai pas compris la 1.
+
+class Artist{
+  var list = ["Picasso", "Dali", "Mozart"]
+  constructor(nom){
+    this.nom = nom;
+  }
+  withName(nom){
+    return this.nom
+  }
+}
+
+// 2.7
+
+
