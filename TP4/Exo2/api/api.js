@@ -6,40 +6,62 @@ let app = express();
 const db = require('./data/db.json');
 
 
-app.get('/genres', function (req, res) {
-    res.set('Content-Type', 'application/json; charset=utf-8');
-    res.send(db.genres);
-  })
-
+app.get('/genres', function (_, res) {
+    res.json(db.genres);
+});
 
 app.get('/genre/*', function (req, res) {
     let genres = [];
-    db.genres.forEach( (genre) => {
+    db.genres.forEach((genre) => {
         genres.push(genre.id);
-    })
+    });
 
     let args = req.params[0].split('/');
 
-
-    if (args.length > 1 && !(args[0] in genres) && (args[1] == 'artists')){
+    if (args.length > 1 && genres.includes(args[0]) && (args[1] === 'artists')) {
         res.set('Content-Type', 'application/json; charset=utf-8');
         let artists = {};
         db.artists.forEach(
             (artist) => {
                 console.log(artist);
-                if (artist.genreId == args[0]){
+                if (artist.genreId === args[0]) {
                     artists[artist.id] = artist;
                 }
-            }
-        )
+            });
         res.send(artists);
     }
     else {
-        res.send("Don't do it !");
-    };
-    
+        res.status(404).send('Not Found !');
+    }
+});
 
-  })
+app.get('/artists', function (_, res) {
+    res.json(db.artists);
+});
+
+app.get('/artist/*', function (req, res) {
+    let artists = [];
+    db.artists.forEach((artist) => {
+        artists.push(artist.id);
+    });
+
+    let args = req.params[0].split('/');
+
+    if (args.length > 1 && artists.includes(args[0]) && (args[1] === 'albums')) {
+        let albums = [];
+        db.albums.forEach(
+            (album) => {
+                if (album.artistId === args[0]) {
+                    albums.push(album);
+                }
+            });
+        res.set('Content-Type', 'application/json; charset=utf-8');
+        res.send(albums);
+    }
+    else {
+        res.status(404).send('Not Found !');
+    }
+});
 
 // export de notre application vers le serveur principal
 module.exports = app;

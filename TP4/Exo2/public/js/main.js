@@ -4,7 +4,7 @@
 /* updateSelector func :
 - args : data (json data requested for genres)
 - Used to provide a selection of different genres */
-function updateSelector(data){
+function updateSelector(data) {
     const select = document.querySelector('#main select');
     console.log('data', data);
     data.forEach((genre, i) => {
@@ -20,23 +20,22 @@ function updateSelector(data){
 - args : None
 - Function that load the genres and that allows to
 update the page with the corresponding artists
-- It is using the fetch and .then .data syntax.*/
+- It is using the fetch and .then .data syntax. */
 function loadGenres() {
     fetch('http://localhost:8080/api/genres', {method: 'GET'})
         .then(response => { // We check the response
-            if (response.ok){
+            if (response.ok) {
                 return response.json();
             }
             else {
                 throw (
-                    new Error('Response not ok')
+                    newError('Response not ok')
                 );
             }
         })
         .then((data) => {
             updateSelector(data);
             document.querySelector('#main select').addEventListener('change', (evt) => {
-                // We are ad
                 loadArtists(data, evt.target.value);
             });
             // By default we load the first option of the select element.
@@ -51,8 +50,9 @@ function loadGenres() {
 update the page with the corresponding artists */
 async function updateArtists(genre) {
     const response = await fetch('http://localhost:8080/api/genre/' + genre + '/artists', {method: 'GET'});
-    const artists = await response.json();
+    let artists = await response.json();
     const ul = document.querySelector('#main ul');
+    artists = Object.values(artists);
 
     const new_children_to_add = artists.map((element) => {
         const li = document.createElement('li');
@@ -67,7 +67,6 @@ async function updateArtists(genre) {
         img.src = element.photo;
         li.appendChild(h3);
         li.appendChild(img);
-
         return li;
     });
     // https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript
@@ -77,41 +76,41 @@ async function updateArtists(genre) {
 
 /* loadArtists func :
 - args : None
-- Function that load the different artists for a genre*/
-function loadArtists(data, genre_id){
+- Function that load the different artists for a genre */
+function loadArtists(data, genre_id) {
     const h2 = document.querySelector('#main').querySelector('h2');
     const p = document.querySelector('#main > p');
     const genre_name = data[genre_id].id;
-
     h2.textContent = 'Top ' + data[genre_id].name + ' artists';
     p.textContent = data[genre_id].description;
-
     updateArtists(genre_name);
 }
 
 /* artistSelected func :
 - args : evt(event)
 - Function that load the different albums for an artist in
-a popup window*/
-async function artistSelected(evt){
+a popup window */
+async function artistSelected(evt) {
     const artist_id = evt.target.id; // Use the id attribut inside h3 to find the artist id.
-    const  response = await fetch('http://localhost:8080/api/artists/' + artist_id + '/albums', {
+    const response = await fetch('http://localhost:8080/api/artist/' + artist_id + '/albums', {
         method: 'GET',
     });
-    const albums = await response.json();
+    let albums = await response.json();
     const popup = document.querySelector('aside');
     const table_v = document.querySelector('aside table tbody');
     const alb_atts = ['cover', 'title', 'year', 'label'];
 
+    albums = Object.values(albums);
+
     // if tbody is empty
-    if (!!(table_v.children)){
+    if (table_v.children) {
         table_v.replaceChildren();
     }
     albums.forEach((album) => {
         const tr = document.createElement('tr');
         alb_atts.forEach((att) => {
             const td = document.createElement('td');
-            if (att === 'cover'){
+            if (att === 'cover') {
                 const img = document.createElement('img');
                 img.src = album[att];
                 td.appendChild(img);
@@ -122,14 +121,12 @@ async function artistSelected(evt){
             tr.appendChild(td);
         });
         table_v.appendChild(tr);
-    }
-    );
+    });
     // launch the animation of appearing
     popup.classList.toggle('show');
 
     // EventListener to make the popup vanish
     popup.querySelector('button').addEventListener('click', () => {
-
         popup.classList.remove('show');
 
         setTimeout(() => {
@@ -140,7 +137,7 @@ async function artistSelected(evt){
 }
 
 // Using a main function to make things a bit more proper looking.
-function main(){
+function main() {
     loadGenres();
 }
 main();
