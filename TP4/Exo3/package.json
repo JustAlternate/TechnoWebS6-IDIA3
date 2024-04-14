@@ -5,11 +5,12 @@
   "main": "gulpfile-node10.js",
   "scripts": {
     "test": "gulp",
-    "start": "nodemon --exec node serveur.js"
+    "start": "nodemon --exec node --env-file=.env serveur.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.17.1",
     "gulp": "^4.0.2",
     "gulp-cached": "^1.1.1",

@@ -5,7 +5,7 @@ let express = require('express');
 let fetch = require('node-fetch');
 let app = express();
 
-const API_KEY = 'ca6a5cfa73124b89d760d1e75f993b01';
+const API_KEY = process.env.API_KEY;
 
 app.get('/genres', async function (_, res) {
     const response = await fetch('http://ws.audioscrobbler.com/2.0/?method=tag.getTopTags&api_key=' + API_KEY + '&format=json', {
