@@ -5,11 +5,12 @@ let express = require('express');
 let app = express();
 const db = require('./data/db.json');
 
-
+/* Api endpoint that returns the genres*/
 app.get('/genres', function (_, res) {
     res.json(db.genres);
 });
 
+/* Api endpoint that returns the artists of a genre*/
 app.get('/genre/*', function (req, res) {
     let genres = [];
     db.genres.forEach((genre) => {
@@ -35,10 +36,12 @@ app.get('/genre/*', function (req, res) {
     }
 });
 
+/* Api endpoint that returns the artists of the db */
 app.get('/artists', function (_, res) {
     res.json(db.artists);
 });
 
+/* Api endpoint that returns the albums of an artist */
 app.get('/artist/*', function (req, res) {
     let artists = [];
     db.artists.forEach((artist) => {
