@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile-node10.js",
+  "contributors": ["Théo MASSELOT","Loïc WEBER"],
   "scripts": {
     "test": "gulp",
     "start": "nodemon --exec node serveur.js"

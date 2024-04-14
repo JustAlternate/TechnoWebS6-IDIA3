@@ -2,6 +2,7 @@
   "name": "tp3",
   "version": "1.0.0",
   "description": "",
+  "contributors": ["Théo MASSELOT","Loïc WEBER"],
   "dependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",

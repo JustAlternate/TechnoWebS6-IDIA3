@@ -2,6 +2,7 @@
   "name": "tp4",
   "version": "1.0.0",
   "description": "",
+  "contributors": ["Théo MASSELOT","Loïc WEBER"],
   "main": "gulpfile-node10.js",
   "scripts": {
     "test": "gulp",
